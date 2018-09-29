@@ -235,5 +235,18 @@ public class StringAccumulatorTest extends TestCase {
 			assertEquals("Negative addition not supported -22,-6,-1001",ex.getMessage());
 		}
     }
+	
+	@Test
+	public void testInvalidDelimeterString()
+	{
+		StringAccumulator sc = new StringAccumulator();
+        
+		try{
+			 sc.add("//\n1*2*3*4");
+			 fail("Expected an Exception to be thrown");
+		}catch(Exception ex){
+			assertEquals("Invalid Delimeter Definition",ex.getMessage());
+		}
+    }
 
 }
